@@ -1,0 +1,228 @@
+body {
+    /* font-family: Arial, sans-serif; */
+    font-family: "Sofia", sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #C1E1C1;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    padding: 20px;
+}
+
+header {
+    background: #35424a;
+    color: #ffffff;
+    padding: 30px 20px;
+    min-height: 50px;
+    border-bottom: #e8491d 3px solid;
+    text-align: center;
+    position: relative;
+}
+
+/* Hamburger menu for smaller screens */
+.nav-toggle {
+    display: none; /* Hide by default */
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1;
+}
+
+/* Navigation Bar */
+.main-nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    transition: transform 3s ease; /* Smooth transition */
+}
+
+.main-nav ul {
+    display: flex;
+    padding: 0;
+    list-style-type: none;
+    margin: 0;
+}
+
+.main-nav li {
+    margin: 0 20px;
+}
+
+.main-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.main-nav.active {
+    transform: translateX(0); /* Move to default position */
+}
+
+.main-nav.inactive {
+    transform: translateX(-100%); /* Move off-screen to the left */
+}
+
+/* Enhanced Section Hover Animation */
+.section {
+    background: #ffffff;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, scale 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section:hover {
+    transform: translateY(-5px) scale(1.03); /* Slightly scale up */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.section h2 {
+    color: #35424a;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+#skills {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    .nav-toggle {
+        display: block; /* Show the toggle button */
+    }
+
+    .main-nav {
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 70px; /* Adjust based on header height */
+        left: 0;
+        width: 100%;
+        background: #35424a;
+        z-index: 1;
+        transform: translateX(-100%); /* Hidden off-screen */
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .main-nav li {
+        margin: 10px 0;
+    }
+
+    .main-nav.active {
+        transform: translateX(0); /* Show the nav */
+    }
+
+    .section {
+        padding: 15px; /* Less padding on smaller screens */
+    }
+
+    .section h2 {
+        font-size: 24px; /* Smaller font size */
+    }
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 28px; /* Smaller font size */
+    }
+
+    .section {
+        padding: 10px; /* Less padding on very small screens */
+    }
+
+    .section h2 {
+        font-size: 20px; /* Even smaller font size */
+    }
+
+    #contact .social-icons {
+        flex-direction: column; /* Stack social icons vertically */
+    }
+
+    #contact .social-icons a {
+        font-size: 20px; /* Smaller social icon size */
+        margin: 5px 0;
+    }
+
+    .fullscreen-content {
+        width: 90%; /* Ensure content fits well on small screens */
+        padding: 10px; /* Less padding */
+    }
+}
+
+/* Fullscreen Modal Animation */
+.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    z-index: 1000;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+    opacity: 0; /* Start invisible */
+    animation: fadeIn 0.3s forwards; /* Fade in animation */
+}
+
+.fullscreen-content {
+    max-width: 800px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #35424a;
+}
+
+/* Keyframes for fadeIn animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
